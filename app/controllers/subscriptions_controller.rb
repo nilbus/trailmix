@@ -26,6 +26,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def send_welcome_email(user)
-    WelcomeMailerWorker.perform_async(user.id)
+    WelcomeMailerWorker.new.perform(user.id)
   end
 end
