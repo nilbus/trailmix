@@ -11,10 +11,6 @@ class SubscriptionsController < ApplicationController
       flash[:error] = user.errors.full_messages.to_sentence
       redirect_to new_registration_path
     end
-
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_registration_path
   end
 
   private
@@ -25,17 +21,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def create_subscription(user)
-    stripe_customer_id = create_stripe_customer.id
     user.save!
-    user.create_subscription!(stripe_customer_id: stripe_customer_id)
-  end
-
-  def create_stripe_customer
-    Stripe::Customer.create(
-      email: params[:email],
-      card: params[:stripe_card_id],
-      plan: Rails.configuration.stripe[:plan_name]
-    )
+    user.create_subscription!(stripe_customer_id: "")
   end
 
   def send_welcome_email(user)

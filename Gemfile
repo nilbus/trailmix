@@ -2,18 +2,15 @@ source "https://rubygems.org"
 
 ruby "2.1.3"
 
-gem "airbrake"
 gem "autoprefixer-rails"
 gem "binding_of_caller"
 gem "bourbon", "~> 3.2.1"
-gem "carrierwave"
 gem "chartkick"
 gem "coffee-rails"
 gem "devise"
 gem "email_reply_parser"
 gem "email_validator"
 gem "flutie"
-gem "fog"
 gem "griddler"
 gem "griddler-sendgrid"
 gem "groupdate"
@@ -33,7 +30,6 @@ gem "sass-rails", "~> 4.0.3"
 gem "sidekiq"
 gem "simple_form"
 gem "sinatra", ">= 1.3.0", require: false
-gem "stripe", :git => "https://github.com/stripe/stripe-ruby"
 gem "title"
 gem "uglifier"
 gem "unicorn"
@@ -67,8 +63,4 @@ end
 
 group :staging, :production do
   gem 'rails_12factor'
-end
-
-group :production do
-  gem "skylight"
 end

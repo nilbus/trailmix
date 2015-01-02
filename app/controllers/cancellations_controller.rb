@@ -13,8 +13,10 @@ class CancellationsController < ApplicationController
   private
 
   def create_cancellation
-    Cancellation.create!(email: current_user.email,
-                         stripe_customer_id: current_user.stripe_customer_id,
-                         reason: params[:reason])
+    Cancellation.create!(
+      email: current_user.email,
+      stripe_customer_id: current_user.stripe_customer_id,
+      reason: params[:reason]
+    )
   end
 end
