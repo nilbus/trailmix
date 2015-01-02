@@ -59,7 +59,7 @@ describe EmailProcessor do
 
     context "when a user can't be found" do
       it "raises an exception" do
-        user = create(:user)
+        create(:user)
         email = create(:griddler_email, to: [{ token: "not-a-token" }])
 
         expect do
@@ -94,7 +94,7 @@ describe EmailProcessor do
 
     context "when the entry is a response to yesterday's email" do
       it "sets the entry date to yesterday's date" do
-        yesterday = Date.new(2014, 1, 2)
+        yesterday = Date.new(Date.today.year, 1, 2)
         user = create(:user)
         email = create(
           :griddler_email,
@@ -104,7 +104,7 @@ describe EmailProcessor do
 
         EmailProcessor.new(email).process
 
-        expect(user.newest_entry.date).to eq(Date.new(2014, 1, 2))
+        expect(user.newest_entry.date).to eq(Date.new(Date.today.year, 1, 2))
       end
     end
   end
