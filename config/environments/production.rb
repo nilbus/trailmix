@@ -89,5 +89,5 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'trailmix.life' }
 
-  config.middleware.use(Rack::SslEnforcer)
+  # config.middleware.use(Rack::SslEnforcer)
 end
