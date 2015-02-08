@@ -8,7 +8,7 @@ class ReplyToken
   end
 
   def generate
-    "#{username}.#{random_suffix}".downcase
+    "trailmix+#{username}.#{random_suffix}".downcase
   end
 
   private
