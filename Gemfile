@@ -27,6 +27,7 @@ gem "rack-timeout"
 gem "recipient_interceptor"
 gem "redis"
 gem "sass-rails", "~> 4.0.3"
+gem "sidekiq"
 gem "simple_form"
 gem "sinatra", ">= 1.3.0", require: false
 gem "title"

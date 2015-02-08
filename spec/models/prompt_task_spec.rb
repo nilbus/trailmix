@@ -1,6 +1,6 @@
 describe PromptTask do
   describe "#run" do
-    xit "enqueues a job for each user" do
+    it "enqueues a job for each user" do
       user = double("user", id: 1)
       other_user = double("other_user", id: 2)
       worker = double("worker", perform_async: nil)
