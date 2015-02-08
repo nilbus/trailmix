@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  before_filter :show_params
+
   protected
+
+  def show_params
+    puts "params: #{params.inspect}"
+  end
 
   def layout_by_resource
     devise_controller? ? "skinny" : "application"
